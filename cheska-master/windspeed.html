@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+
+    <title>Bootstrap Visualization Dashboard</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="./weather_files/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./weather_files/jumbotron.css" rel="stylesheet">
+  </head>
+
+  <body>
+	<!-- Dark Nav Bar -->
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/#"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="weather.html">Latitude and Weather <span class="sr-only">(current)</span></a>
+          </li>
+		  <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plots</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="temp.html">Max Temperature</a>
+              <a class="dropdown-item" href="humidity.html">Humidity</a>
+              <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
+			  <a class="dropdown-item" href="windspeed.html">Wind Speed</a>	  
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Comparisons.html">Comparison</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="data.html">Data</a>
+          </li>
+        </ul>   
+      </div>
+    </nav>
+
+	<!-- Light Nav Bar -->
+	<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+		<h5 class="my-0 mr-md-auto font-weight-normal">
+			<a class="nav-link" href="weather.html">Latitude and Weather <span class="sr-only">(current)</span></a>
+		</h5>
+	  <nav class="my-2 my-md-0 mr-md-3">
+		<a class="p-2 text-dark" href="https://getbootstrap.com/docs/4.3/examples/pricing/#">Plots</a>
+		<a class="p-2 text-dark" href="Comparisons.html">Comparison</a>
+		<a class="p-2 text-dark" href="data.html">Data</a>    
+	  </nav>
+	</div>
+	
+	
+    <main role="main">      
+		<div class="jumbotron">        
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">			
+						<div class="card-deck mb-3 text-left">
+							<div class="card mb-4 shadow-sm">
+							  <div class="card-header">
+								<h2 class="my-0 font-weight-normal">Wind Speed</h2>
+							  </div>
+							  <div class="card-body">								
+								<ul class="list-unstyled mt-3 mb-4">								
+									<img src="images/Latitude_Windspeed.png" style= "width: 100%" >
+									<br>
+									<br>
+									<p>There is no association between latitude and wind speed. However, it is interesting to note that cities with the fastest wind speed are far from the equator.</p>
+								</ul>
+							  </div>													
+							</div>
+						</div>						
+					</div>
+					<div class="col-md-4">			
+						<div class="card-deck mb-3 text-left">
+							<div class="card mb-4 shadow-sm">
+							  <div class="card-header">
+								<h2 class="my-0 font-weight-normal">Visualizations</h2>
+							  </div>
+							  <div class="card-body">								
+								<ul class="list-unstyled mt-3 mb-4">
+								  <a href="temp.html"><img src="images/Latitude_MaxTemp.png" width="145" height="145" /></a>
+								  <a href="humidity.html"><img src="images/Latitude_Humidity.png" width="145" height="145" /></a>
+								  <a href="cloudiness.html"><img src="images/Latitude_Cloudiness.png" width="145" height="145" /></a>
+								  <a href="windspeed.html"><img src="images/Latitude_Windspeed.png" width="145" height="145" /></a>		  
+								</ul>								
+							  </div>
+							</div>
+						</div>						
+					</div>					
+				</div>
+			</div>
+		</div>		
+	</main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Jumbotron Template for Bootstrap_files/jquery-3.2.1.slim.min.js.download" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="./Jumbotron Template for Bootstrap_files/popper.min.js.download"></script>
+    <script src="./Jumbotron Template for Bootstrap_files/bootstrap.min.js.download"></script>
+  
+
+</body></html>
