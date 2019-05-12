@@ -1,0 +1,137 @@
+<head>
+  <title>ETL Project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="jumbotron">
+    <h2>ISSUED PARKING TICKETS ON TORONTO GREEN P PARKING SPACES</h2>  
+  </div>
+  
+<br>
+<h5>MEMBERS</h5>
+  <ul>
+    <li>Anna Francesca Gatus</li>
+    <li>Christopher Habib</li>
+    <li>Siddharth Krishnan</li>
+  </ul>
+<br>
+<br>
+<h5>INTRODUCTION</h5>
+<br>
+  <p>The Toronto Parking Authority is a local Board of the City of Toronto which owns and operates the system of Municipal off-street parking lots ('Green P') and the on-street metered parking. Approximately 2.8 million parking tickets are issued annually across the City of Toronto. The Issued Parking Tickets dataset contains non-identifiable information relating to each parking ticket issued for each calendar year. The tickets are issued by Toronto Police Services (TPS) personnel as well as persons certified and authorized to issue tickets by TPS.</p>
+  <br>
+  <p>Our group chose to combine 2015 Issued Parking Tickets and Green P Parking. Final table has the following columns: Parking ID, Parking Rate, Address, Infraction Description and Set Fine Amount. Link to code can be found <a href="https://github.com/chabib456/ETL-Project/blob/master/Main%20Code.ipynb" target="_blank">here.</a></p>
+  <br>
+  <br>
+<h5>METHODS</h5>
+<br>
+  <p>Using the ETL processes, the following tasks were done: </p>
+  <br>
+  
+  <h6>Extract:<h6>
+  <br>
+    <ol type="1">
+    <li>Extracted 2015 Issued Parking Tickets Data from Toronto Open Data Catalogue.</li>
+      <br>
+      <p>Source <a href="https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-catalogue/#75d14c24-3b7e-f344-4412-d8fd41f89455" target="_blank">here</a></p>
+      <p>Link to three .csv files <a href="https://github.com/chabib456/ETL-Project/tree/master/Resources/parking_tickets_2015" target="_blank" >here</a></p>
+      <br>
+    <li>Extracted 2015 Green P Parking Data from The Toronto Parking Authority Open Data Catalogue</li>   
+      <br>
+      <p>Source <a href="https://portal0.cf.opendata.inter.sandbox-toronto.ca/dataset/green-p-parking/" target="_blank">here</a></p>
+      <p>Link to Json file <a href="https://www.toronto.ca/ext/open_data/catalog/data_set_files/greenPParking2015.json" target="_blank">here</a></p>
+  </ol>
+  <br>
+
+  <h6>Transform:<h6>
+  <br>
+  <ol type="1">
+    <li>Issued Parking Tickets Data</li>
+      <br>
+      <ol type = "a">
+        <li>Used Python Pandas library to load and read the three .csv files.</li>
+        <br>
+        <li>Used pd.concat function to combine the three DataFrame results.</li>
+        <br>
+        <li>Stored addresses by selecting location 2 column and putting it in a list.</li>
+        <br>
+      </ol>
+    <br>
+    <li>Green P Parking Data</li> 
+      <br>   
+      <ol type = "a">
+          <li>Used Python Json library to load and read json file.</li>
+          <br>
+          <li>Used a for loop to collect parking id, address and rate data and stored information to corresponding lists.</li>
+          <br>
+          <li>Results were saved as DataFrame.</li>
+          <br>
+          <li>Used Python pandas library to convert lists to DataFrame.</li>
+          <br>
+          <li>Stored addresses by selecting address column and putting it in a list.</li>
+          <br>
+        </ol>
+      <br>
+    <li>Addresses of Issued Parking Tickets must be transformed to be identical to addresses of Green P Parking so that it can be merged.</li>
+      <br>
+      <ol type = "a">
+          <li>Converted address list to upper case.</li>
+          <br>
+          <li>Removed dots from address.</li>
+          <br>
+          <li>Used a for loop and if, elif, else statements to change the following:</li>
+          <br>
+            <ol type = "i">
+              <li>east to E</li>
+              <br>
+              <li>west to W</li>
+              <br>
+              <li>street to ST</li>
+              <br>
+              <li>blvd to BLVD</li>
+              <br>
+              <li>avenue to AVE</li>
+              <br>
+              <li>road to RD</li>
+              <br>
+              <li>dr to DR</li>
+              <br>
+              <li>circle to CRCL</li>
+              <br>
+              <li>lane to LANE</li>
+              <br>
+              <li>drive to DRIVE</li>
+              <br>
+            </ol>          
+          <li>Stored cleaned up data to a list called streets.</li>
+          <br>
+          <li>Verified if the counts of common addresses on both datasets match.</li>
+          <br>
+          <li>Merged two DataFrames using the clean address column.</li>          
+      </ol>
+    </ol>
+    <br>
+  
+  <h6>Load:<h6>
+  <br>
+  <ol type="1">
+    <li>Created SQL connection.</li>
+    <br>
+    <li>Exported to MySQL. Since the final output is a DataFrame, we decided to load the data into a relational database.</li>
+    <br>
+    <li>Final table to be used in the production database has the following columns: Parking ID, Parking Rate, Address, Infraction Description and Set Fine Amount. Reason why these columns were selected is to determine possible relationship between parking rate vs infractions, and parking rate vs set fine amount. Other analysis that can be done would be: Which location has the highest infraction? What infraction is the most common? Does high parking rate causing infractions? Does high fine prevent infraction?
+    <br>
+    <br>
+    <br>
+    </li>
+  </ol>
+</div>
+</body>
+</html>
